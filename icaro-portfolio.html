@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Icaro Vendruscolo — Design · Video · Filmmaking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Playfair+Display:ital,wght@1,400;1,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#ffffff; --bg2:#f7f5f2; --bg3:#f0ede8;
+  --border:rgba(0,0,0,.08); --border2:rgba(0,0,0,.13);
+  --orange:#FF5C1A; --orange-l:rgba(255,92,26,.1);
+  --purple:#7C3AED;
+  --text:#111111; --text-mid:#444444; --text-muted:#888888; --text-subtle:#bbbbbb;
+  --r:16px; --rl:24px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Instrument Sans',sans-serif;font-weight:400;line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav.sc{background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 60px;box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.n-logo{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.1rem;color:var(--text);text-decoration:none;letter-spacing:-.02em}
+.n-logo span{color:var(--orange)}
+.n-links{display:flex;gap:36px;list-style:none;align-items:center}
+.n-links a{color:var(--text-muted);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.04em;transition:color .2s}
+.n-links a:hover{color:var(--text)}
+.n-cta{background:var(--orange)!important;color:white!important;padding:9px 22px!important;border-radius:100px;font-weight:600!important;letter-spacing:0!important;box-shadow:0 4px 14px rgba(255,92,26,.35)!important;transition:all .2s!important}
+.n-cta:hover{transform:translateY(-1px)!important;box-shadow:0 8px 20px rgba(255,92,26,.4)!important}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.hbg span{width:22px;height:1.5px;background:var(--text);display:block;transition:all .3s}
+
+/* HERO */
+#home{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 60px 80px;text-align:center;position:relative;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0}
+.bo{width:500px;height:500px;background:radial-gradient(circle,rgba(255,92,26,.1) 0%,transparent 70%);top:0;right:0}
+.bp{width:400px;height:400px;background:radial-gradient(circle,rgba(124,58,237,.07) 0%,transparent 70%);bottom:0;left:0}
+.hero-in{position:relative;z-index:1;max-width:860px;width:100%}
+.h-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:28px;background:var(--orange-l);border:1px solid rgba(255,92,26,.2);padding:6px 16px;border-radius:100px}
+.h-tag::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.h-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(3.5rem,9vw,7rem);line-height:.9;letter-spacing:-.03em;margin-bottom:32px;color:var(--text)}
+.h-em{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;color:var(--orange);font-size:clamp(3rem,8vw,6.2rem)}
+.serif-it{font-family:'Playfair Display',serif;font-style:italic;font-weight:500}
+.h-sub{font-size:1.05rem;color:var(--text-mid);max-width:520px;margin:0 auto 44px;line-height:1.7}
+.h-sub strong{color:var(--text);font-weight:600}
+.h-acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:100px;font-weight:600;font-size:.88rem;cursor:pointer;text-decoration:none;transition:all .25s;border:none;font-family:'Instrument Sans',sans-serif}
+.bp1{background:var(--orange);color:white;box-shadow:0 6px 20px rgba(255,92,26,.35)}
+.bp1:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,92,26,.4)}
+.bo1{background:transparent;color:var(--text);border:1.5px solid var(--border2)}
+.bo1:hover{border-color:var(--text);background:var(--bg2)}
+.bpu{background:var(--purple);color:white;box-shadow:0 6px 20px rgba(124,58,237,.3)}
+.bpu:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(124,58,237,.4)}
+.h-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.chip{font-family:'Space Mono',monospace;font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);border:1px solid var(--border2);padding:6px 14px;border-radius:100px;background:var(--bg2)}
+
+/* MARQUEE */
+.mq-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;background:var(--bg);padding:16px 0}
+.mq-track{display:flex;animation:mq 22s linear infinite;width:max-content;align-items:center}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-i{font-family:'Poppins',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-subtle);white-space:nowrap;padding:0 28px;display:flex;align-items:center;gap:28px}
+.mq-d{width:5px;height:5px;background:var(--orange);border-radius:50%;opacity:.7}
+
+/* SECTIONS */
+section{padding:100px 60px}
+.si{max-width:1160px;margin:0 auto}
+.lbl{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.lbl::before{content:'+';font-size:.9rem;font-weight:700}
+.sec-t{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3.2rem);line-height:1;letter-spacing:-.02em;color:var(--text);margin-bottom:20px}
+.sec-t .org{color:var(--orange)}
+.sec-t .sit{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:clamp(2rem,4.5vw,3.6rem)}
+
+/* ABOUT */
+#trabalhos{background:var(--bg2)}
+.a-center{text-align:center;max-width:700px;margin:0 auto 80px}
+.a-center p{font-size:1rem;color:var(--text-mid);line-height:1.75}
+.stats-row{display:flex;gap:20px;justify-content:center;margin-top:36px;flex-wrap:wrap}
+.s-pill{background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:14px 28px;display:flex;align-items:center;gap:12px}
+.s-num{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.6rem;color:var(--orange);line-height:1}
+.s-lbl{font-size:.78rem;color:var(--text-muted);font-weight:500}
+
+/* TOOLS */
+.tools-b{margin-top:80px;text-align:center}
+.tools-sub{font-family:'Space Mono',monospace;font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:28px}
+.tools-row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center}
+.t-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 18px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);transition:all .2s;cursor:default;min-width:76px}
+.t-item:hover{border-color:rgba(255,92,26,.3);box-shadow:0 4px 16px rgba(255,92,26,.08);transform:translateY(-2px)}
+.t-item svg{width:34px;height:34px}
+.t-item span{font-size:.67rem;color:var(--text-muted);font-weight:500;white-space:nowrap}
+
+/* GALLERY */
+.gal-sec{margin-top:80px}
+.gal-hdr{text-align:center;margin-bottom:44px}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.wc{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;position:relative;cursor:pointer;transition:all .3s}
+.wc:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
+.wc.ft{grid-column:span 2}
+.wimg{width:100%;height:220px;overflow:hidden;position:relative}
+.wc.ft .wimg{height:260px}
+.ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.phd{background:linear-gradient(135deg,#fff5f0,#ffe8d6)}
+.phv{background:linear-gradient(135deg,#f5f0ff,#e8d6ff)}
+.phf{background:linear-gradient(135deg,#f0f5ff,#d6e8ff)}
+.ph-ic{font-size:2.2rem;opacity:.7}
+.ph-tx{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
+.wov{position:absolute;inset:0;background:rgba(255,92,26,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
+.wc:hover .wov{opacity:1}
+.wot{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.2rem;color:white;letter-spacing:-.01em}
+.wog{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:6px}
+.winfo{padding:14px 18px}
+.wn{font-family:'Poppins',sans-serif;font-weight:700;font-size:.88rem;margin-bottom:3px;color:var(--text)}
+.wcat{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
+
+/* PRICING OVERVIEW */
+#pricing{background:var(--bg)}
+.p-hdr{text-align:center;max-width:600px;margin:0 auto 60px}
+.p-hdr p{font-size:.94rem;color:var(--text-mid);line-height:1.7;margin-top:14px}
+.sc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sc{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--rl);overflow:hidden;cursor:pointer;transition:all .35s;text-decoration:none;display:block;color:var(--text)}
+.sc:hover{border-color:var(--orange);transform:translateY(-6px);box-shadow:0 24px 50px rgba(255,92,26,.14)}
+.sc:hover .sc-ar{background:var(--orange);color:white;border-color:var(--orange)}
+.sc-img{aspect-ratio:3/2;overflow:hidden;position:relative}
+.sc-img .ph{height:100%}
+.sc-num{position:absolute;top:14px;left:14px;font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);background:rgba(255,255,255,.85);backdrop-filter:blur(6px);padding:4px 12px;border-radius:100px;border:1px solid var(--border)}
+.sc-body{padding:22px}
+.sc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.sc-nm{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.02em}
+.sc-ar{width:34px;height:34px;border-radius:50%;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:all .25s;flex-shrink:0;color:var(--text)}
+.sc-ds{font-size:.83rem;color:var(--text-muted);line-height:1.6;margin-bottom:16px}
+.sc-ct{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:6px}
+.sc-ct::after{content:'→';transition:transform .2s}
+.sc:hover .sc-ct::after{transform:translateX(4px)}
+
+/* PAGES */
+.page{display:none}
+.page.active{display:block}
+
+/* LANDING PAGE HERO */
+.lp-hero{padding:150px 60px 80px;background:var(--bg2);border-bottom:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
+.lb-o{position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,92,26,.1) 0%,transparent 70%);filter:blur(40px);pointer-events:none}
+.lb-p{position:absolute;bottom:-80px;left:-80px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.08) 0%,transparent 70%);filter:blur(40px);pointer-events:none}
+.lp-in{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.lp-bk{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;background:none;border:none;margin-bottom:34px;transition:color .2s}
+.lp-bk:hover{color:var(--text)}
+.lp-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:18px;background:var(--orange-l);border:1px solid rgba(255,92,26,.2);padding:5px 14px;border-radius:100px}
+.lp-t{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(2.8rem,6vw,5rem);line-height:.95;letter-spacing:-.02em;color:var(--text);margin-bottom:22px}
+.lp-t .sit{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;color:var(--orange)}
+.lp-d{font-size:1rem;color:var(--text-mid);line-height:1.7;max-width:540px;margin:0 auto 36px}
+.lp-imgs{display:flex;gap:12px;justify-content:center;margin-top:44px;flex-wrap:wrap}
+.lp-ic{border-radius:var(--r);overflow:hidden;border:1px solid var(--border);flex-shrink:0}
+.lp-ic.lg{width:300px;height:190px}
+.lp-ic.sm{width:144px;height:190px}
+.lp-ic .ph{height:100%}
+
+/* PLANS */
+.plans-sec{padding:80px 60px 100px;background:var(--bg)}
+.plans-in{max-width:1100px;margin:0 auto}
+.plans-hdr{text-align:center;margin-bottom:56px}
+.plans-hdr .sec-t{margin-bottom:12px}
+.plans-hdr p{font-size:.9rem;color:var(--text-muted);max-width:480px;margin:0 auto;line-height:1.6}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+.pc{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--rl);padding:34px 28px;position:relative;transition:all .3s}
+.pc:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.08)}
+.pc.feat{background:var(--orange);border-color:var(--orange);color:white;transform:scale(1.04)}
+.pc.feat:hover{transform:scale(1.04) translateY(-4px)}
+.pc-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--text);color:white;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 16px;border-radius:100px;white-space:nowrap}
+.pc-tier{font-family:'Space Mono',monospace;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:18px}
+.pc.feat .pc-tier{color:rgba(255,255,255,.65)}
+.pc-price{font-family:'Poppins',sans-serif;font-weight:900;font-size:2.8rem;line-height:1;letter-spacing:-.03em;color:var(--text);margin-bottom:4px}
+.pc.feat .pc-price{color:white}
+.pc-note{font-size:.76rem;color:var(--text-muted);margin-bottom:26px}
+.pc.feat .pc-note{color:rgba(255,255,255,.65)}
+.pc-div{height:1px;background:var(--border2);margin-bottom:22px}
+.pc.feat .pc-div{background:rgba(255,255,255,.2)}
+.pc-feats{list-style:none;margin-bottom:30px}
+.pc-feats li{font-size:.83rem;color:var(--text-mid);padding:7px 0;display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid var(--border)}
+.pc-feats li:last-child{border-bottom:none}
+.pc.feat .pc-feats li{color:rgba(255,255,255,.85);border-bottom-color:rgba(255,255,255,.15)}
+.pc-feats li::before{content:'✦';color:var(--orange);font-size:.55rem;margin-top:4px;flex-shrink:0}
+.pc.feat .pc-feats li::before{color:white}
+.pc-btn{width:100%;padding:13px;border-radius:12px;font-weight:600;font-size:.83rem;cursor:pointer;text-align:center;text-decoration:none;display:block;transition:all .25s;border:none;font-family:'Instrument Sans',sans-serif}
+.pb-o{background:transparent;color:var(--text);border:1.5px solid var(--border2)}
+.pb-o:hover{background:var(--bg3);border-color:var(--text)}
+.pb-s{background:var(--text);color:white}
+.pb-s:hover{background:#222;transform:translateY(-1px)}
+.pb-or{background:var(--orange);color:white;box-shadow:0 4px 14px rgba(255,92,26,.3)}
+.pb-or:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(255,92,26,.4)}
+.plans-note{text-align:center;margin-top:44px;font-family:'Space Mono',monospace;font-size:.67rem;color:var(--text-subtle);letter-spacing:.06em}
+.plans-note a{color:var(--orange);text-decoration:none}
+
+/* CONTATO */
+#contato{background:var(--bg2)}
+.ct-top{text-align:center;max-width:600px;margin:0 auto 56px}
+.ct-top p{font-size:.94rem;color:var(--text-mid);margin-top:14px;line-height:1.7}
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.ct-links{display:flex;flex-direction:column;gap:12px}
+.cl{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r);text-decoration:none;color:var(--text);transition:all .25s}
+.cl:hover{border-color:var(--orange);transform:translateX(4px);box-shadow:0 8px 24px rgba(255,92,26,.1)}
+.cl-ic{width:40px;height:40px;background:var(--bg2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.cl-tx{flex:1}
+.cl-lb{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:2px}
+.cl-vl{font-size:.86rem;font-weight:600}
+.cl-ar{color:var(--text-subtle);transition:color .2s}
+.cl:hover .cl-ar{color:var(--orange)}
+.ct-form{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--rl);padding:34px}
+.ft-title{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.55rem;letter-spacing:-.02em;margin-bottom:5px}
+.ft-sub{font-size:.81rem;color:var(--text-muted);margin-bottom:26px}
+.fg{margin-bottom:16px}
+.fl{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:6px}
+.fi,.fta,.fsel{width:100%;background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;padding:11px 14px;color:var(--text);font-family:'Instrument Sans',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.fi:focus,.fta:focus,.fsel:focus{border-color:var(--orange)}
+.fta{resize:vertical;min-height:95px}
+.fsel option{background:white}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:34px 60px;background:var(--bg);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px}
+.f-logo{font-family:'Poppins',sans-serif;font-weight:800;font-size:1rem;color:var(--text-muted)}
+.f-logo span{color:var(--orange)}
+.f-copy{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--text-subtle);letter-spacing:.06em}
+.f-links{display:flex;gap:22px}
+.f-links a{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .2s}
+.f-links a:hover{color:var(--orange)}
+
+/* WA BUTTON */
+.wa{position:fixed;bottom:28px;right:28px;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;text-decoration:none;z-index:90;box-shadow:0 6px 24px rgba(37,211,102,.4);transition:all .2s}
+.wa:hover{transform:scale(1.1)}
+
+/* REVEAL ANIMATION */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.reveal.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:14px 20px}
+  nav.sc{padding:10px 20px}
+  .n-links{display:none}
+  .n-links.open{display:flex;flex-direction:column;position:fixed;inset:0;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);z-index:200;justify-content:center;align-items:center;gap:28px}
+  .n-links.open a{font-size:1rem;color:var(--text)}
+  .hbg{display:flex;z-index:300}
+  .cls-m{position:absolute;top:20px;right:20px;font-size:1.5rem;background:none;border:none;cursor:pointer;color:var(--text)}
+  section{padding:60px 20px}
+  #home{padding:100px 20px 60px}
+  footer{padding:26px 20px;flex-direction:column;text-align:center}
+  .f-links{justify-content:center}
+  .sc-grid{grid-template-columns:1fr}
+  .wgrid{grid-template-columns:1fr 1fr}
+  .wc.ft{grid-column:span 2}
+  .pgrid{grid-template-columns:1fr}
+  .pc.feat{transform:scale(1)}
+  .pc.feat:hover{transform:translateY(-4px)}
+  .ct-grid{grid-template-columns:1fr}
+  .lp-hero{padding:120px 20px 60px}
+  .plans-sec{padding:60px 20px 80px}
+  .lp-ic.lg{width:100%;height:170px}
+  .lp-ic.sm{width:calc(50% - 6px);height:150px}
+  .stats-row{flex-direction:column;align-items:center}
+}
+@media(max-width:600px){
+  .wgrid{grid-template-columns:1fr}
+  .wc.ft{grid-column:span 1}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="n-logo" onclick="showPage('main')">IV<span>.</span></a>
+  <ul class="n-links" id="navLinks">
+    <button class="cls-m" onclick="closeMenu()">&#10005;</button>
+    <li><a href="#home" onclick="navTo('main','home')">Home</a></li>
+    <li><a href="#trabalhos" onclick="navTo('main','trabalhos')">Trabalhos</a></li>
+    <li><a href="#pricing" onclick="navTo('main','pricing')">Pricing</a></li>
+    <li><a href="#contato" onclick="navTo('main','contato')">Contato</a></li>
+    <li><a href="#contato" class="n-cta" onclick="navTo('main','contato')">Orcamento</a></li>
+  </ul>
+  <button class="hbg" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<a href="https://wa.me/5511991640777" target="_blank" class="wa">&#128172;</a>
+
+<!-- ══════════ MAIN PAGE ══════════ -->
+<div id="page-main" class="page active">
+
+  <section id="home">
+    <div class="blob bo"></div>
+    <div class="blob bp"></div>
+    <div class="hero-in">
+      <div class="h-tag">Disponivel para novos projetos</div>
+      <h1 class="h-title">
+        Icaro<br>
+        <span class="h-em">Vendrus-</span><br>
+        colo
+      </h1>
+      <p class="h-sub"><strong>Design · Edicao de Video · Filmmaking.</strong><br>Criativo freelancer que faz identidade visual, edicao de conteudo e gravacao in-loco. Do conceito a entrega final.</p>
+      <div class="h-acts">
+        <a href="#pricing" class="btn bp1" onclick="navTo('main','pricing')">Ver pricing &rarr;</a>
+        <a href="#trabalhos" class="btn bo1" onclick="navTo('main','trabalhos')">Ver trabalhos</a>
+        <a href="https://wa.me/5511991640777" target="_blank" class="btn bpu">Falar comigo</a>
+      </div>
+      <div class="h-chips">
+        <span class="chip">Design</span>
+        <span class="chip">Edicao de Video</span>
+        <span class="chip">Filmmaking</span>
+        <span class="chip">Social Media</span>
+        <span class="chip">Reels &amp; Shorts</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="mq-wrap">
+    <div class="mq-track">
+      <div class="mq-i">Design<span class="mq-d"></span></div>
+      <div class="mq-i">Edicao de Video<span class="mq-d"></span></div>
+      <div class="mq-i">Filmmaking<span class="mq-d"></span></div>
+      <div class="mq-i">Social Media<span class="mq-d"></span></div>
+      <div class="mq-i">Identidade Visual<span class="mq-d"></span></div>
+      <div class="mq-i">Reels &amp; Shorts<span class="mq-d"></span></div>
+      <div class="mq-i">Motion Graphics<span class="mq-d"></span></div>
+      <div class="mq-i">Branding<span class="mq-d"></span></div>
+      <div class="mq-i">Design<span class="mq-d"></span></div>
+      <div class="mq-i">Edicao de Video<span class="mq-d"></span></div>
+      <div class="mq-i">Filmmaking<span class="mq-d"></span></div>
+      <div class="mq-i">Social Media<span class="mq-d"></span></div>
+      <div class="mq-i">Identidade Visual<span class="mq-d"></span></div>
+      <div class="mq-i">Reels &amp; Shorts<span class="mq-d"></span></div>
+      <div class="mq-i">Motion Graphics<span class="mq-d"></span></div>
+      <div class="mq-i">Branding<span class="mq-d"></span></div>
+    </div>
+  </div>
+
+  <!-- TRABALHOS -->
+  <section id="trabalhos">
+    <div class="si">
+      <div class="a-center reveal">
+        <div class="lbl">Sobre mim</div>
+        <h2 class="sec-t">"Criativo de<br><span class="sit">ponta a ponta"</span></h2>
+        <p>Sou <strong>Icaro Vendruscolo</strong> &mdash; designer, editor de video e filmmaker. Trabalho com marcas e criadores de conteudo que querem uma presenca visual <strong>diferente do comum</strong>. Entrego design para redes sociais, edicoes que prendem a atencao e gravacoes que contam historias reais.</p>
+        <div class="stats-row">
+          <div class="s-pill"><div class="s-num">50+</div><div class="s-lbl">Projetos entregues</div></div>
+          <div class="s-pill"><div class="s-num">3</div><div class="s-lbl">Areas de atuacao</div></div>
+          <div class="s-pill"><div class="s-num">100%</div><div class="s-lbl">Foco no resultado</div></div>
+        </div>
+      </div>
+
+      <!-- TOOLS -->
+      <div class="tools-b reveal">
+        <p class="tools-sub">Softwares que domino</p>
+        <div class="tools-row">
+          <div class="t-item">
+            <svg viewBox="0 0 240 234" xmlns="http://www.w3.org/2000/svg"><rect width="240" height="234" rx="42" fill="#001E36"/><path d="M54 164V61c0-.7.3-1 1-1 1.7 0 3.3 0 5.6-.1 2.4-.1 4.9-.1 7.6-.2 2.7-.1 5.6-.1 8.6-.2 3-.1 6-.1 9-.1 8.2 0 15 1.1 20.4 3.2 5 1.9 9.4 4.8 13 8.6 3.2 3.4 5.6 7.4 7.1 11.8 1.5 4.3 2.2 8.8 2.2 13.4 0 8.8-2.1 16.1-6.3 21.9-4.2 5.8-9.8 10-16.8 12.6-7 2.6-14.7 3.4-23.3 3.4-2.4 0-4 0-5-.1s-2.3-.1-3.7-.1v29.6c.1.7-.4 1.3-1.1 1.4H55c-.7 0-1-.4-1-1.3zm20.8-44.6c1.2.1 2.3.2 3.3.2h4.6c3.3 0 6.5-.5 9.5-1.5 2.9-.9 5.4-2.5 7.4-4.6 2-2.1 3-5.1 3-9 .1-2.9-.6-5.7-2-8.2-1.4-2.4-3.6-4.3-6.1-5.4-3-1.4-6.9-2-11.5-2-2.1 0-3.9 0-5.3.1s-2.4.1-3 .2v30.2zm83.7 13.6c-2.1-1.2-4.4-2-6.8-2.4-2.7-.5-5.4-.8-8.1-.8-1.7 0-3.4.2-5 .5-1.2.2-2 .4-2.4.6v47.2c0 .9-.4 1.3-1.1 1.3h-19.4c-.7 0-1-.4-1-1.3V99c0-.8.2-1.3.8-1.6 3.9-1.8 8-3.1 12.2-3.9 4.5-.9 9.1-1.4 13.7-1.4h3.5c1.1 0 2.3.1 3.5.3.9.1 1.9.3 2.8.5.7.2 1.1.5 1.1 1.1v17.2c-.1.5-.5.7-.9.8z" fill="#31A8FF"/></svg>
+            <span>Photoshop</span>
+          </div>
+          <div class="t-item">
+            <svg viewBox="0 0 240 234" xmlns="http://www.w3.org/2000/svg"><rect width="240" height="234" rx="42" fill="#310000"/><path d="M116 140H80l-8 24c-.2.8-.9 1.4-1.8 1.3H52c-1 0-1.3-.5-1-1.6L85 64c.3-1 .7-2 1-3.1.4-1.8.6-3.7.6-5.6 0-.5.3-1 .8-1h25.5c.7 0 1.1.3 1.2.8L152 164c.3 1 0 1.5-.9 1.5H133c-.7.1-1.4-.4-1.6-1.1L116 140zm-30-20h24c-.5-2-1.3-4.5-2.3-7.3-1-2.8-2-5.8-3.1-9-1.1-3.2-2.1-6.3-3.1-9.4-1-3.1-1.9-6-2.7-8.7h-.2c-.9 3.6-2 7.3-3.3 11.1-1.3 3.8-2.5 7.6-3.7 11.3-1.2 3.5-2.2 6.7-3.1 9zm72-52c0 3-.9 5.5-2.8 7.4-1.9 1.9-4.6 2.9-7.2 2.8-2.5 0-5-1-6.8-2.8-1.9-1.9-2.9-4.5-2.8-7.2 0-2.8 1-5.4 2.9-7.3 1.9-1.9 4.4-2.9 7-2.8 2.8-.1 5.5 1 7.3 2.9 1.8 2 2.7 4.5 2.6 7zm-3 95h-18.4c-.7 0-1.1-.4-1.1-1.2V96c0-.8.3-1.2 1.1-1.2H155c.8 0 1.1.4 1.1 1.1v67c0 1-.3 1.3-1.1 1.3z" fill="#FF9A00"/></svg>
+            <span>Illustrator</span>
+          </div>
+          <div class="t-item">
+            <svg viewBox="0 0 240 234" xmlns="http://www.w3.org/2000/svg"><rect width="240" height="234" rx="42" fill="#00005B"/><path d="M64 164V61c0-.7.3-1 1-1 1.7 0 3.3 0 5.6-.1 2.4-.1 4.9-.1 7.6-.2 2.7-.1 5.6-.1 8.6-.2 3-.1 6-.1 9-.1 8.2 0 15 1.1 20.4 3.2 5 1.9 9.4 4.8 13 8.6 3.2 3.4 5.6 7.4 7.1 11.8 1.5 4.3 2.2 8.8 2.2 13.4 0 8.8-2.1 16.1-6.3 21.9-4.2 5.8-9.8 10-16.8 12.6-7 2.6-14.7 3.4-23.3 3.4-2.4 0-4 0-5-.1s-2.3-.1-3.7-.1v29.6c.1.7-.4 1.3-1.1 1.4H65c-.7 0-1-.4-1-1.3zm20-44c1.2.1 2.3.2 3.3.2h4.6c3.3 0 6.5-.5 9.5-1.5 2.9-.9 5.4-2.5 7.4-4.6 2-2.1 3-5.1 3-9 .1-2.9-.6-5.7-2-8.2-1.4-2.4-3.6-4.3-6.1-5.4-3-1.4-6.9-2-11.5-2-2.1 0-3.9 0-5.3.1s-2.4.1-3 .2v30.2zm88-19h-8c-.6 0-1-.4-1.1-1V95h9V84c0-.8.3-1.2 1-1.4l18-5c1-.3 1.4.2 1.4 1v15h13c.7 0 1.1.4 1.1 1.1v4c0 .6-.4 1-.9 1.1h-13v35c0 5.1 2 7.4 5.7 7.4 2.4 0 4.8-.5 7-1.4.5-.3 1.1-.1 1.4.4v15c0 .6-.4 1.2-1 1.4-3.8 1.3-8.5 1.9-14.2 1.9-5.1 0-9.7-1.7-13-4.7-3.4-3.1-5-8.2-5-15.3V101z" fill="#9999FF"/></svg>
+            <span>Premiere</span>
+          </div>
+          <div class="t-item">
+            <svg viewBox="0 0 240 234" xmlns="http://www.w3.org/2000/svg"><rect width="240" height="234" rx="42" fill="#00003B"/><path d="M102 140H66l-8 24c-.2.8-.9 1.4-1.8 1.3H38c-1 0-1.3-.5-1-1.6L70 64c.3-1 .7-2 1-3.1.4-1.8.6-3.7.6-5.6 0-.5.3-1 .8-1H98c.7 0 1.1.3 1.2.8L138 164c.3 1 0 1.5-.9 1.5h-19c-.7.1-1.4-.4-1.6-1.1L102 140zm-30-20h24c-.5-2-1.3-4.5-2.3-7.3-1-2.8-2-5.8-3.1-9-1.1-3.2-2.1-6.3-3.1-9.4-1-3.1-1.9-6-2.7-8.7h-.2c-.9 3.6-2 7.3-3.3 11.1-1.3 3.8-2.5 7.6-3.7 11.3-1.2 3.5-2.2 6.7-3.1 9zm104 15c.8-8.4-2.8-16.6-9.5-21.8-4.7-3.5-10.1-5.9-15.9-7l-10.2-2.7c-3-.7-5.8-2-8.3-3.7-1.7-1.2-2.8-3.2-2.7-5.3-.1-2.6 1.2-5 3.4-6.5 2.5-1.6 5.5-2.4 8.5-2.3 5.6-.1 10.8 2.4 14.2 6.7.5.7 1.3.8 1.9.3l13-9c.7-.5.8-1.4.4-2-3.1-4.7-7.4-8.4-12.5-10.8-5.4-2.5-11.4-3.8-17.3-3.7-5.8-.1-11.6 1.1-16.9 3.4-4.8 2-9 5.3-12 9.4-2.9 4-4.4 8.9-4.4 14.5-.5 7.3 2.6 14.4 8.3 19 5.3 4.3 11.6 7 18.3 8.1l8.2 1.9c3.5.6 6.8 1.9 9.7 3.8 2.1 1.4 3.3 3.8 3.2 6.3 0 2.7-1.5 5.2-3.9 6.6-3 1.7-6.5 2.6-10 2.5-7.2.4-14-3.2-17.8-9.3-.5-.7-1.2-.9-1.9-.5L122 151c-.8.5-.9 1.4-.5 2.1 2.8 4.9 7.2 8.8 12.4 11.1 5.9 2.8 12.4 4.2 18.9 4.1 6.3.1 12.5-1.1 18.3-3.5 5.2-2.2 9.7-5.8 12.9-10.4 3-4.7 4.5-10.1 4.4-15.6z" fill="#9999FF"/></svg>
+            <span>After Effects</span>
+          </div>
+          <div class="t-item">
+            <svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg" style="width:26px;height:40px">
+              <path d="M19 28.5A9.5 9.5 0 0 1 28.5 19 9.5 9.5 0 0 1 38 28.5 9.5 9.5 0 0 1 28.5 38 9.5 9.5 0 0 1 19 28.5z" fill="#1ABCFE"/>
+              <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5A9.5 9.5 0 0 1 9.5 57 9.5 9.5 0 0 1 0 47.5z" fill="#0ACF83"/>
+              <path d="M19 0v19h9.5A9.5 9.5 0 0 0 28.5 0H19z" fill="#FF7262"/>
+              <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/>
+              <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"/>
+            </svg>
+            <span>Figma</span>
+          </div>
+          <div class="t-item">
+            <svg viewBox="0 0 240 234" xmlns="http://www.w3.org/2000/svg"><rect width="240" height="234" rx="42" fill="#001D26"/><path d="M88 155H138c.5-.1.9.3 1 .8v12c0 .6-.3.9-1 .9H73c-.7 0-1-.4-1-1.1V62c0-.7.3-1.1 1.1-1.1h14c.8 0 1.1.4 1.1 1.1v93z" fill="#31A8FF"/></svg>
+            <span>Lightroom</span>
+          </div>
+          <div class="t-item">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="22" fill="#000"/><circle cx="50" cy="50" r="30" fill="none" stroke="white" stroke-width="6"/><circle cx="50" cy="50" r="10" fill="white"/><line x1="50" y1="20" x2="50" y2="80" stroke="white" stroke-width="4"/><line x1="20" y1="50" x2="80" y2="50" stroke="white" stroke-width="4"/></svg>
+            <span>CapCut</span>
+          </div>
+          <div class="t-item">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#1C1C1C"/><circle cx="50" cy="50" r="28" fill="none" stroke="#F2A900" stroke-width="5"/><circle cx="50" cy="50" r="9" fill="#F2A900"/><line x1="50" y1="22" x2="50" y2="78" stroke="#F2A900" stroke-width="3"/><line x1="22" y1="50" x2="78" y2="50" stroke="#F2A900" stroke-width="3"/></svg>
+            <span>DaVinci</span>
+          </div>
+          <div class="t-item">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="50" fill="#7B2FBE"/><text x="50" y="69" text-anchor="middle" font-family="Georgia,serif" font-size="56" font-weight="bold" fill="white">C</text></svg>
+            <span>Canva</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- GALLERY -->
+      <div class="gal-sec reveal">
+        <div class="gal-hdr">
+          <div class="lbl">Portfolio</div>
+          <h2 class="sec-t">Trabalhos <span class="sit">selecionados</span></h2>
+        </div>
+        <div class="wgrid">
+          <div class="wc ft">
+            <div class="wimg"><div class="ph phd"><span class="ph-ic">&#127912;</span><span class="ph-tx">Substituir pela sua imagem</span></div></div>
+            <div class="wov"><div class="wot">Identidade Visual</div><div class="wog">Design · Branding</div></div>
+            <div class="winfo"><div class="wn">Identidade Visual — Marca X</div><div class="wcat">Design · Branding</div></div>
+          </div>
+          <div class="wc">
+            <div class="wimg"><div class="ph phv"><span class="ph-ic">&#127916;</span><span class="ph-tx">Imagem do projeto</span></div></div>
+            <div class="wov"><div class="wot">Reel Edit</div><div class="wog">Edicao de Video</div></div>
+            <div class="winfo"><div class="wn">Reel — Creator Y</div><div class="wcat">Edicao de Video</div></div>
+          </div>
+          <div class="wc">
+            <div class="wimg"><div class="ph phf"><span class="ph-ic">&#128247;</span><span class="ph-tx">Imagem do projeto</span></div></div>
+            <div class="wov"><div class="wot">Filmmaking</div><div class="wog">Gravacao</div></div>
+            <div class="winfo"><div class="wn">Evento — Empresa Z</div><div class="wcat">Filmmaking</div></div>
+          </div>
+          <div class="wc">
+            <div class="wimg"><div class="ph phd" style="background:linear-gradient(135deg,#f0fff5,#d6ffe8)"><span class="ph-ic">&#128194;</span><span class="ph-tx">Carrossel</span></div></div>
+            <div class="wov"><div class="wot">Social Media</div><div class="wog">Design · Social</div></div>
+            <div class="winfo"><div class="wn">Campanha Social — Projeto W</div><div class="wcat">Design · Social Media</div></div>
+          </div>
+          <div class="wc">
+            <div class="wimg"><div class="ph phv" style="background:linear-gradient(135deg,#fffbf0,#ffefd6)"><span class="ph-ic">&#9986;</span><span class="ph-tx">Frame do video</span></div></div>
+            <div class="wov"><div class="wot">Short Form</div><div class="wog">Video · Reels</div></div>
+            <div class="winfo"><div class="wn">Reels Pack — Marca V</div><div class="wcat">Video · Short Form</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING OVERVIEW -->
+  <section id="pricing">
+    <div class="si">
+      <div class="p-hdr reveal">
+        <div class="lbl">Servicos &amp; Pricing</div>
+        <h2 class="sec-t">Escolha seu <span class="sit">servico</span></h2>
+        <p>Tres frentes criativas com planos claros. Sem surpresas, sem enrolacao. Clique para ver os planos de cada servico.</p>
+      </div>
+      <div class="sc-grid reveal">
+        <a class="sc" onclick="showPage('design');return false;" href="#">
+          <div class="sc-img"><div class="ph phd" style="height:180px"><span class="ph-ic" style="font-size:2.4rem">&#127912;</span><span class="ph-tx">Imagem do trabalho de design</span></div><div class="sc-num">01 · Design</div></div>
+          <div class="sc-body">
+            <div class="sc-head"><span class="sc-nm">Design</span><span class="sc-ar">&rarr;</span></div>
+            <p class="sc-ds">Posts, carrosseis e artes para redes sociais. Visual consistente todo mes com identidade.</p>
+            <span class="sc-ct">Ver planos</span>
+          </div>
+        </a>
+        <a class="sc" onclick="showPage('video');return false;" href="#">
+          <div class="sc-img"><div class="ph phv" style="height:180px"><span class="ph-ic" style="font-size:2.4rem">&#127916;</span><span class="ph-tx">Imagem de edicao de video</span></div><div class="sc-num">02 · Video</div></div>
+          <div class="sc-body">
+            <div class="sc-head"><span class="sc-nm">Edicao</span><span class="sc-ar">&rarr;</span></div>
+            <p class="sc-ds">Reels, Shorts, TikToks. Corte dinamico, legenda e tratamento de cor toda semana.</p>
+            <span class="sc-ct">Ver planos</span>
+          </div>
+        </a>
+        <a class="sc" onclick="showPage('filming');return false;" href="#">
+          <div class="sc-img"><div class="ph phf" style="height:180px"><span class="ph-ic" style="font-size:2.4rem">&#128247;</span><span class="ph-tx">Imagem de filmagem</span></div><div class="sc-num">03 · Filmmaking</div></div>
+          <div class="sc-body">
+            <div class="sc-head"><span class="sc-nm">Filmmaking</span><span class="sc-ar">&rarr;</span></div>
+            <p class="sc-ds">Gravacao in-loco para conteudo, eventos e projetos audiovisuais com direcao e qualidade.</p>
+            <span class="sc-ct">Ver planos</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="si" style="max-width:1100px">
+      <div class="ct-top reveal">
+        <div class="lbl">Contato</div>
+        <h2 class="sec-t">Bora trabalhar <span class="sit">juntos?</span></h2>
+        <p>Tem um projeto em mente? Manda mensagem. Respondo rapido e explico tudo antes de fechar.</p>
+      </div>
+      <div class="ct-grid reveal">
+        <div class="ct-links">
+          <a href="https://wa.me/5511991640777" target="_blank" class="cl">
+            <div class="cl-ic">&#128172;</div>
+            <div class="cl-tx"><div class="cl-lb">WhatsApp</div><div class="cl-vl">+55 (11) 9 9164-0777</div></div>
+            <span class="cl-ar">&rarr;</span>
+          </a>
+          <a href="#" id="emailLink" class="cl">
+            <div class="cl-ic">&#128140;</div>
+            <div class="cl-tx"><div class="cl-lb">E-mail</div><div class="cl-vl">icarovendruscolo.studio@gmail.com</div></div>
+            <span class="cl-ar">&rarr;</span>
+          </a>
+          <a href="https://instagram.com/vicare.png" target="_blank" class="cl">
+            <div class="cl-ic">&#128248;</div>
+            <div class="cl-tx"><div class="cl-lb">Instagram</div><div class="cl-vl">@vicare.png</div></div>
+            <span class="cl-ar">&rarr;</span>
+          </a>
+        </div>
+        <div class="ct-form">
+          <div class="ft-title">Solicitar orcamento</div>
+          <div class="ft-sub">Preencha e retorno em ate 24h.</div>
+          <div class="fg"><label class="fl">Nome</label><input type="text" class="fi" placeholder="Seu nome"></div>
+          <div class="fg">
+            <label class="fl">Servico de interesse</label>
+            <select class="fsel">
+              <option value="">Selecione um servico</option>
+              <option>Design — Social Media</option>
+              <option>Edicao de Video</option>
+              <option>Gravacao / Filmmaking</option>
+              <option>Pacote completo</option>
+            </select>
+          </div>
+          <div class="fg"><label class="fl">Mensagem</label><textarea class="fta" placeholder="Conte sobre seu projeto..."></textarea></div>
+          <button class="btn bp1" style="width:100%;margin-top:6px;border-radius:12px" onclick="alert('Mensagem enviada! Em breve entro em contato.')">Enviar mensagem &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="f-logo">IV<span>.</span> Icaro Vendruscolo</div>
+    <div class="f-copy">&copy; 2025 — Design · Video · Filmmaking</div>
+    <div class="f-links">
+      <a href="#home" onclick="navTo('main','home')">Home</a>
+      <a href="#trabalhos" onclick="navTo('main','trabalhos')">Trabalhos</a>
+      <a href="#pricing" onclick="navTo('main','pricing')">Pricing</a>
+      <a href="#contato" onclick="navTo('main','contato')">Contato</a>
+    </div>
+  </footer>
+
+</div><!-- /page-main -->
+
+
+<!-- ══════════ DESIGN PAGE ══════════ -->
+<div id="page-design" class="page">
+  <div class="lp-hero">
+    <div class="lb-o"></div><div class="lb-p"></div>
+    <div class="lp-in">
+      <button class="lp-bk" onclick="showPage('main')">&larr; Voltar aos servicos</button>
+      <div class="lp-tag">&#10022; Servico 01</div>
+      <h1 class="lp-t">Design para<br><span class="sit">Redes Sociais</span></h1>
+      <p class="lp-d">Posts, carrosseis e artes que criam consistencia visual para sua marca. Conteudo feito pra engajar, com identidade e estrategia.</p>
+      <div class="lp-imgs">
+        <div class="lp-ic lg"><div class="ph phd" style="height:100%"><span class="ph-ic">&#127912;</span><span class="ph-tx">Sua imagem aqui</span></div></div>
+        <div class="lp-ic sm"><div class="ph phd" style="height:100%;background:linear-gradient(135deg,#fff8f0,#ffe4d6)"><span class="ph-ic">&#128194;</span><span class="ph-tx">Carrossel</span></div></div>
+        <div class="lp-ic sm"><div class="ph phd" style="height:100%;background:linear-gradient(135deg,#f0fff8,#d6ffec)"><span class="ph-ic">&#9998;</span><span class="ph-tx">Post estatico</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="plans-sec">
+    <div class="plans-in">
+      <div class="plans-hdr">
+        <div class="lbl" style="justify-content:center">Planos mensais</div>
+        <h2 class="sec-t">Escolha seu <span class="sit">plano</span></h2>
+        <p>Todos os planos incluem briefing, revisoes e entrega em alta resolucao.</p>
+      </div>
+      <div class="pgrid">
+        <div class="pc">
+          <div class="pc-tier">Basico</div>
+          <div class="pc-price">R$360</div>
+          <div class="pc-note">/mes</div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>4 artes por mes</li>
+            <li>2 posts estaticos</li>
+            <li>2 carrosseis</li>
+            <li>Briefing inicial incluso</li>
+            <li>1 revisao por arte</li>
+          </ul>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-o">Solicitar orcamento</a>
+        </div>
+        <div class="pc feat">
+          <div class="pc-badge">Mais popular</div>
+          <div class="pc-tier">Pro</div>
+          <div class="pc-price">R$440</div>
+          <div class="pc-note">/mes</div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>8 artes por mes</li>
+            <li>4 posts estaticos</li>
+            <li>4 carrosseis</li>
+            <li>Briefing inicial incluso</li>
+            <li>2 revisoes por arte</li>
+            <li>Entrega prioritaria</li>
+          </ul>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-s">Contratar agora</a>
+        </div>
+        <div class="pc">
+          <div class="pc-tier">Premium</div>
+          <div class="pc-price">R$800</div>
+          <div class="pc-note">/mes</div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>12 artes por mes</li>
+            <li>6 posts estaticos</li>
+            <li>6 carrosseis</li>
+            <li>Briefing + estrategia</li>
+            <li>Revisoes ilimitadas</li>
+            <li>Entrega prioritaria</li>
+            <li>Suporte WhatsApp direto</li>
+          </ul>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-or">Falar comigo</a>
+        </div>
+      </div>
+      <p class="plans-note">Precisa de algo diferente? <a href="https://wa.me/5511991640777" target="_blank">Manda mensagem</a> e criamos um plano personalizado.</p>
+    </div>
+  </div>
+  <footer>
+    <div class="f-logo">IV<span>.</span> Icaro Vendruscolo</div>
+    <div class="f-copy">&copy; 2025</div>
+    <div class="f-links"><a href="#" onclick="showPage('main')">&larr; Voltar</a><a href="#" onclick="navTo('main','contato')">Contato</a></div>
+  </footer>
+</div><!-- /page-design -->
+
+
+<!-- ══════════ VIDEO PAGE ══════════ -->
+<div id="page-video" class="page">
+  <div class="lp-hero">
+    <div class="lb-o"></div><div class="lb-p"></div>
+    <div class="lp-in">
+      <button class="lp-bk" onclick="showPage('main')">&larr; Voltar aos servicos</button>
+      <div class="lp-tag">&#10022; Servico 02</div>
+      <h1 class="lp-t">Edicao de<br><span class="sit">Video</span></h1>
+      <p class="lp-d">Reels, Shorts e TikToks com corte dinamico, legendas animadas e tratamento de cor. Entrega consistente toda semana.</p>
+      <div class="lp-imgs">
+        <div class="lp-ic lg"><div class="ph phv" style="height:100%"><span class="ph-ic">&#127916;</span><span class="ph-tx">Frame do video editado</span></div></div>
+        <div class="lp-ic sm"><div class="ph phv" style="height:100%;background:linear-gradient(135deg,#f5f0ff,#e8d6ff)"><span class="ph-ic">&#9986;</span><span class="ph-tx">Timeline</span></div></div>
+        <div class="lp-ic sm"><div class="ph phv" style="height:100%;background:linear-gradient(135deg,#f0f8ff,#d6ecff)"><span class="ph-ic">&#128241;</span><span class="ph-tx">Reel</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="plans-sec">
+    <div class="plans-in">
+      <div class="plans-hdr">
+        <div class="lbl" style="justify-content:center">Planos semanais</div>
+        <h2 class="sec-t">Conteudo toda <span class="sit">semana</span></h2>
+        <p>Videos editados com consistencia. Ideal para criadores e marcas com presenca constante nas redes.</p>
+      </div>
+      <div class="pgrid">
+        <div class="pc">
+          <div class="pc-tier">Basico</div>
+          <div class="pc-price">R$260</div>
+          <div class="pc-note">/semana &nbsp;&middot;&nbsp; <strong>R$1.040/mes</strong></div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>2 edicoes por semana</li>
+            <li>Reels, Shorts, TikTok</li>
+            <li>Corte dinamico</li>
+            <li>Legendas animadas</li>
+            <li>Tratamento basico de cor</li>
+          </ul>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-o">Solicitar orcamento</a>
+        </div>
+        <div class="pc feat">
+          <div class="pc-badge">Mais popular</div>
+          <div class="pc-tier">Pro</div>
+          <div class="pc-price">R$440</div>
+          <div class="pc-note">/semana &nbsp;&middot;&nbsp; <strong>R$1.760/mes</strong></div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>3 edicoes por semana</li>
+            <li>Reels, Shorts, TikTok</li>
+            <li>Corte dinamico avancado</li>
+            <li>Legendas animadas</li>
+            <li>Tratamento de cor completo</li>
+            <li>Trilha sonora</li>
+            <li>Entrega prioritaria</li>
+          </ul>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-s">Contratar agora</a>
+        </div>
+        <div class="pc">
+          <div class="pc-tier">Premium</div>
+          <div class="pc-price">R$620</div>
+          <div class="pc-note">/semana &nbsp;&middot;&nbsp; <strong>R$2.480/mes</strong></div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>5 edicoes por semana</li>
+            <li>Reels, Shorts, TikTok</li>
+            <li>Corte dinamico premium</li>
+            <li>Legendas animadas</li>
+            <li>Tratamento de cor completo</li>
+            <li>Motion graphics simples</li>
+            <li>Revisoes ilimitadas</li>
+            <li>Suporte WhatsApp direto</li>
+          </ul>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-or">Falar comigo</a>
+        </div>
+      </div>
+      <p class="plans-note">Valores ajustados conforme complexidade. <a href="https://wa.me/5511991640777" target="_blank">Fale comigo</a> para um orcamento exato.</p>
+    </div>
+  </div>
+  <footer>
+    <div class="f-logo">IV<span>.</span> Icaro Vendruscolo</div>
+    <div class="f-copy">&copy; 2025</div>
+    <div class="f-links"><a href="#" onclick="showPage('main')">&larr; Voltar</a><a href="#" onclick="navTo('main','contato')">Contato</a></div>
+  </footer>
+</div><!-- /page-video -->
+
+
+<!-- ══════════ FILMING PAGE ══════════ -->
+<div id="page-filming" class="page">
+  <div class="lp-hero">
+    <div class="lb-o"></div><div class="lb-p"></div>
+    <div class="lp-in">
+      <button class="lp-bk" onclick="showPage('main')">&larr; Voltar aos servicos</button>
+      <div class="lp-tag">&#10022; Servico 03</div>
+      <h1 class="lp-t">Gravacao &amp;<br><span class="sit">Filmmaking</span></h1>
+      <p class="lp-d">Gravacao in-loco para conteudo, eventos e projetos audiovisuais. Direcao, captura e entrega do material bruto. Edicao sob consulta separada.</p>
+      <div class="lp-imgs">
+        <div class="lp-ic lg"><div class="ph phf" style="height:100%"><span class="ph-ic">&#128247;</span><span class="ph-tx">Behind the scenes</span></div></div>
+        <div class="lp-ic sm"><div class="ph phf" style="height:100%;background:linear-gradient(135deg,#fff5f8,#ffd6e8)"><span class="ph-ic">&#127909;</span><span class="ph-tx">Set de gravacao</span></div></div>
+        <div class="lp-ic sm"><div class="ph phf" style="height:100%;background:linear-gradient(135deg,#f8f5ff,#e8d6ff)"><span class="ph-ic">&#127902;</span><span class="ph-tx">Frame</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="plans-sec">
+    <div class="plans-in">
+      <div class="plans-hdr">
+        <div class="lbl" style="justify-content:center">Pacotes de gravacao</div>
+        <h2 class="sec-t">Valores <span class="sit">por sessao</span></h2>
+        <p>Sem mensalidade. Contrate a sessao que precisa. Inclui deslocamento local, equipamento e direcao.</p>
+      </div>
+      <div class="pgrid">
+        <div class="pc">
+          <div class="pc-tier">Basico</div>
+          <div class="pc-price">R$260</div>
+          <div class="pc-note">por sessao</div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>2 horas de gravacao</li>
+            <li>1 local / set</li>
+            <li>Material bruto entregue</li>
+            <li>Direcao de cena inclusa</li>
+            <li>Ideal para conteudo rapido</li>
+          </ul>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-o">Solicitar orcamento</a>
+        </div>
+        <div class="pc feat">
+          <div class="pc-badge">Mais popular</div>
+          <div class="pc-tier">Pro</div>
+          <div class="pc-price">R$440</div>
+          <div class="pc-note">por sessao</div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>4 horas de gravacao</li>
+            <li>Ate 2 locais / sets</li>
+            <li>Material bruto entregue</li>
+            <li>Direcao e roteiro basico</li>
+            <li>Ideal para eventos e marcas</li>
+            <li>Edicao: sob consulta</li>
+          </ul>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-s">Contratar agora</a>
+        </div>
+        <div class="pc">
+          <div class="pc-tier">Premium</div>
+          <div class="pc-price">R$800</div>
+          <div class="pc-note">por sessao</div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>5 a 6 horas de gravacao</li>
+            <li>Multiplos locais</li>
+            <li>Material bruto entregue</li>
+            <li>Direcao completa</li>
+            <li>Projetos audiovisuais completos</li>
+            <li style="color:var(--orange);font-style:italic">&#9889; Quer edicao completa inclusa? Me manda mensagem que ajusto o valor.</li>
+          </ul>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-or">Falar comigo</a>
+        </div>
+      </div>
+      <p class="plans-note">Deslocamento fora da cidade tem valor extra. <a href="https://wa.me/5511991640777" target="_blank">Entre em contato.</a></p>
+    </div>
+  </div>
+  <footer>
+    <div class="f-logo">IV<span>.</span> Icaro Vendruscolo</div>
+    <div class="f-copy">&copy; 2025</div>
+    <div class="f-links"><a href="#" onclick="showPage('main')">&larr; Voltar</a><a href="#" onclick="navTo('main','contato')">Contato</a></div>
+  </footer>
+</div><!-- /page-filming -->
+
+<script>
+window.addEventListener('scroll', function() {
+  document.getElementById('mainNav').classList.toggle('sc', window.scrollY > 40);
+});
+
+var emailEl = document.getElementById('emailLink');
+if (emailEl) { emailEl.href = 'mailto:icarovendruscolo.studio@gmail.com'; }
+
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('navLinks').classList.remove('open');
+}
+function showPage(p) {
+  document.querySelectorAll('.page').forEach(function(x) { x.classList.remove('active'); });
+  document.getElementById('page-' + p).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(initReveal, 120);
+}
+function navTo(p, s) {
+  closeMenu();
+  showPage(p);
+  setTimeout(function() {
+    var el = document.getElementById(s);
+    if (el) { el.scrollIntoView({ behavior: 'smooth' }); }
+  }, 200);
+}
+function initReveal() {
+  var items = document.querySelectorAll('.reveal:not(.visible)');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry, i) {
+      if (entry.isIntersecting) {
+        setTimeout(function() { entry.target.classList.add('visible'); }, i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  items.forEach(function(el) { observer.observe(el); });
+}
+document.addEventListener('DOMContentLoaded', function() {
+  initReveal();
+  var hero = document.querySelector('.hero-in');
+  if (hero) {
+    hero.style.opacity = '0';
+    hero.style.transform = 'translateY(24px)';
+    hero.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
+    setTimeout(function() {
+      hero.style.opacity = '1';
+      hero.style.transform = 'none';
+    }, 150);
+  }
+});
+</script>
+</body>
+</html>
