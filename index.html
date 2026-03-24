@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Icaro Vendruscolo — Design · Video · Filmmaking</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #ffffff;
@@ -33,7 +33,7 @@
   /* NAV */
   nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
   nav.sc{background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 60px;box-shadow:0 2px 20px rgba(0,0,0,.06)}
-  .n-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--text);text-decoration:none;letter-spacing:-.02em}
+  .n-logo{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.1rem;color:var(--text);text-decoration:none;letter-spacing:-.02em}
   .n-logo span{color:var(--orange)}
   .n-links{display:flex;gap:36px;list-style:none;align-items:center}
   .n-links a{color:var(--text-muted);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.04em;transition:color .2s}
@@ -46,15 +46,15 @@
   /* HERO */
   #home{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 60px 80px;text-align:center;position:relative;overflow:hidden}
   .blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
-  .bo{width:500px;height:500px;background:radial-gradient(circle,rgba(255,92,26,.12) 0%,transparent 70%);top:5%;right:3%;z-index:0}
-  .bp{width:400px;height:400px;background:radial-gradient(circle,rgba(124,58,237,.08) 0%,transparent 70%);bottom:5%;left:3%;z-index:0}
+  .bo{width:500px;height:500px;background:radial-gradient(circle,rgba(255,92,26,.1) 0%,transparent 70%);top:0;right:0;z-index:0}
+  .bp{width:400px;height:400px;background:radial-gradient(circle,rgba(124,58,237,.07) 0%,transparent 70%);bottom:0;left:0;z-index:0}
   .hero-in{position:relative;z-index:1;max-width:860px;width:100%}
   .h-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:28px;background:var(--orange-l);border:1px solid rgba(255,92,26,.2);padding:6px 16px;border-radius:100px}
   .h-tag::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;animation:blink 2s infinite}
   @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-  .h-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(3.8rem,8vw,7.5rem);line-height:.92;letter-spacing:-.03em;margin-bottom:32px}
-  .h-title .out{-webkit-text-stroke:2px var(--text);color:transparent}
-  .h-title .org{color:var(--orange)}
+  .h-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(3.5rem,9vw,7rem);line-height:.9;letter-spacing:-.03em;margin-bottom:32px;color:var(--text)}
+  .h-title-em{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;color:var(--orange);font-size:clamp(3rem,8vw,6.2rem)}
+  .serif-it{font-family:'Playfair Display',serif;font-style:italic;font-weight:500}
   .h-sub{font-size:1.05rem;color:var(--text-mid);max-width:520px;margin:0 auto 44px;line-height:1.7}
   .h-sub strong{color:var(--text);font-weight:600}
   .h-acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
@@ -72,7 +72,7 @@
   .mq-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;background:var(--bg);padding:16px 0}
   .mq-track{display:flex;animation:mq 22s linear infinite;width:max-content;align-items:center}
   @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  .mq-i{font-family:'Syne',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-subtle);white-space:nowrap;padding:0 28px;display:flex;align-items:center;gap:28px}
+  .mq-i{font-family:'Poppins',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-subtle);white-space:nowrap;padding:0 28px;display:flex;align-items:center;gap:28px}
   .mq-d{width:5px;height:5px;background:var(--orange);border-radius:50%;opacity:.7}
 
   /* SECTION */
@@ -80,7 +80,7 @@
   .si{max-width:1160px;margin:0 auto}
   .lbl{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
   .lbl::before{content:'+';font-size:.9rem;font-weight:700}
-  .sec-t{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.4rem,5vw,4rem);line-height:.95;letter-spacing:-.03em;color:var(--text);margin-bottom:20px}
+  .sec-t{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3.2rem);line-height:1;letter-spacing:-.02em;color:var(--text);margin-bottom:20px}
   .sec-t span{color:var(--orange)}
   .sec-t em{font-style:normal;color:var(--purple)}
 
@@ -90,7 +90,7 @@
   .a-center p{font-size:1rem;color:var(--text-mid);line-height:1.75}
   .stats-row{display:flex;gap:20px;justify-content:center;margin-top:36px;flex-wrap:wrap}
   .s-pill{background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:14px 28px;display:flex;align-items:center;gap:12px}
-  .s-num{font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;color:var(--orange);line-height:1}
+  .s-num{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.6rem;color:var(--orange);line-height:1}
   .s-lbl{font-size:.78rem;color:var(--text-muted);font-weight:500}
 
   /* TOOLS */
@@ -119,10 +119,10 @@
   .ph-tx{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
   .wov{position:absolute;inset:0;background:rgba(255,92,26,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
   .wc:hover .wov{opacity:1}
-  .wot{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:white;letter-spacing:-.01em}
+  .wot{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.2rem;color:white;letter-spacing:-.01em}
   .wog{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:6px}
   .winfo{padding:14px 18px}
-  .wn{font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;margin-bottom:3px;color:var(--text)}
+  .wn{font-family:'Poppins',sans-serif;font-weight:700;font-size:.88rem;margin-bottom:3px;color:var(--text)}
   .wcat{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
 
   /* PRICING OVERVIEW */
@@ -138,7 +138,7 @@
   .sc-num{position:absolute;top:14px;left:14px;font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);background:rgba(255,255,255,.85);backdrop-filter:blur(6px);padding:4px 12px;border-radius:100px;border:1px solid var(--border)}
   .sc-body{padding:22px}
   .sc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-  .sc-nm{font-family:'Syne',sans-serif;font-weight:800;font-size:1.45rem;letter-spacing:-.02em}
+  .sc-nm{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.02em}
   .sc-ar{width:34px;height:34px;border-radius:50%;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:all .25s;flex-shrink:0;color:var(--text)}
   .sc-ds{font-size:.83rem;color:var(--text-muted);line-height:1.6;margin-bottom:16px}
   .sc-ct{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:6px}
@@ -154,7 +154,7 @@
   .lp-bk{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;background:none;border:none;margin-bottom:34px;transition:color .2s}
   .lp-bk:hover{color:var(--text)}
   .lp-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:18px;background:var(--orange-l);border:1px solid rgba(255,92,26,.2);padding:5px 14px;border-radius:100px}
-  .lp-t{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(3rem,7vw,6rem);line-height:.92;letter-spacing:-.03em;color:var(--text);margin-bottom:22px}
+  .lp-t{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(2.8rem,6vw,5rem);line-height:.95;letter-spacing:-.02em;color:var(--text);margin-bottom:22px}
   .lp-t span{color:var(--orange)}
   .lp-d{font-size:1rem;color:var(--text-mid);line-height:1.7;max-width:540px;margin:0 auto 36px}
   .lp-imgs{display:flex;gap:12px;justify-content:center;margin-top:44px;flex-wrap:wrap}
@@ -177,7 +177,7 @@
   .pc-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--text);color:white;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 16px;border-radius:100px;white-space:nowrap}
   .pc-tier{font-family:'Space Mono',monospace;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:18px}
   .pc.feat .pc-tier{color:rgba(255,255,255,.65)}
-  .pc-price{font-family:'Syne',sans-serif;font-weight:800;font-size:2.8rem;line-height:1;letter-spacing:-.03em;color:var(--text);margin-bottom:4px}
+  .pc-price{font-family:'Poppins',sans-serif;font-weight:900;font-size:2.8rem;line-height:1;letter-spacing:-.03em;color:var(--text);margin-bottom:4px}
   .pc.feat .pc-price{color:white}
   .pc-note{font-size:.76rem;color:var(--text-muted);margin-bottom:26px}
   .pc.feat .pc-note{color:rgba(255,255,255,.65)}
@@ -214,7 +214,7 @@
   .cl-ar{color:var(--text-subtle);transition:color .2s}
   .cl:hover .cl-ar{color:var(--orange)}
   .ct-form{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--rl);padding:34px}
-  .ft-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1.55rem;letter-spacing:-.02em;margin-bottom:5px}
+  .ft-title{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.55rem;letter-spacing:-.02em;margin-bottom:5px}
   .ft-sub{font-size:.81rem;color:var(--text-muted);margin-bottom:26px}
   .fg{margin-bottom:16px}
   .fl{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:6px}
@@ -225,7 +225,7 @@
 
   /* FOOTER */
   footer{border-top:1px solid var(--border);padding:34px 60px;background:var(--bg);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px}
-  .f-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--text-muted)}
+  .f-logo{font-family:'Poppins',sans-serif;font-weight:800;font-size:1rem;color:var(--text-muted)}
   .f-logo span{color:var(--orange)}
   .f-copy{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--text-subtle);letter-spacing:.06em}
   .f-links{display:flex;gap:22px}
@@ -238,7 +238,6 @@
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
   .reveal.visible{opacity:1;transform:none}
 
-  /* RESPONSIVE */
   @media(max-width:900px){
     nav{padding:14px 20px}nav.sc{padding:10px 20px}
     .n-links{display:none}
@@ -283,7 +282,7 @@
   <button class="hbg" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
 
-<a href="https://wa.me/5500000000000" target="_blank" class="wa">💬</a>
+<a href="https://wa.me/5511991640777" target="_blank" class="wa">💬</a>
 
 <!-- ══ MAIN ══ -->
 <div id="page-main" class="page active">
@@ -294,15 +293,15 @@
   <div class="hero-in">
     <div class="h-tag">Disponível para novos projetos</div>
     <h1 class="h-title">
-      <span class="out">Icaro</span><br>
-      <span class="org">Vendrus-</span><br>
+      Icaro<br>
+      <em class="serif-it h-title-em">Vendrus-</em><br>
       colo
     </h1>
     <p class="h-sub"><strong>Design · Edição de Vídeo · Filmmaking.</strong><br>Criativo freelancer que faz identidade visual, edição de conteúdo e gravação in-loco. Do conceito à entrega final.</p>
     <div class="h-acts">
       <a href="#pricing" class="btn bp1">Ver pricing →</a>
       <a href="#trabalhos" class="btn bo1">Ver trabalhos</a>
-      <a href="https://wa.me/5500000000000" target="_blank" class="btn bpu">💬 Falar comigo</a>
+      <a href="https://wa.me/5511991640777" target="_blank" class="btn bpu">💬 Falar comigo</a>
     </div>
     <div class="h-chips">
       <span class="chip">Design</span>
@@ -325,7 +324,7 @@
   <div class="si">
     <div class="a-center reveal">
       <div class="lbl">Sobre mim</div>
-      <h2 class="sec-t">"Criativo de<br><span>ponta a ponta"</span></h2>
+      <h2 class="sec-t">"Criativo de<br><span class="serif-it" style="font-size:clamp(2.2rem,4.5vw,3.8rem)">ponta a ponta"</span></h2>
       <p>Sou <strong>Icaro Vendruscolo</strong> — designer, editor de vídeo e filmmaker. Trabalho com marcas e criadores de conteúdo que querem uma presença visual <strong>diferente do comum</strong>. Entrego design para redes sociais, edições que prendem a atenção e gravações que contam histórias reais.</p>
       <div class="stats-row">
         <div class="s-pill"><div class="s-num">50+</div><div class="s-lbl">Projetos entregues</div></div>
@@ -397,7 +396,7 @@
     <div class="gal-sec reveal">
       <div class="gal-hdr">
         <div class="lbl">Portfólio</div>
-        <h2 class="sec-t">Trabalhos <span>selecionados</span></h2>
+        <h2 class="sec-t">Trabalhos <em class="serif-it" style="font-size:clamp(2.2rem,4.5vw,3.8rem)">selecionados</em></h2>
       </div>
       <div class="wgrid">
         <div class="wc ft">
@@ -434,7 +433,7 @@
   <div class="si">
     <div class="p-hdr reveal">
       <div class="lbl">Serviços & Pricing</div>
-      <h2 class="sec-t">Escolha seu <span>serviço</span></h2>
+      <h2 class="sec-t">Escolha seu <em class="serif-it" style="font-size:clamp(2.2rem,4.5vw,3.8rem)">serviço</em></h2>
       <p>Três frentes criativas com planos claros. Sem surpresas, sem enrolação. Clique para ver os planos de cada serviço.</p>
     </div>
     <div class="sc-grid reveal">
@@ -470,14 +469,14 @@
   <div class="si contact-inner" style="max-width:1100px">
     <div class="ct-top reveal">
       <div class="lbl">Contato</div>
-      <h2 class="sec-t">Bora trabalhar <span>juntos?</span></h2>
+      <h2 class="sec-t">Bora trabalhar <em class="serif-it" style="font-size:clamp(2.2rem,4.5vw,3.8rem)">juntos?</em></h2>
       <p>Tem um projeto em mente? Manda mensagem. Respondo rápido e explico tudo antes de fechar.</p>
     </div>
     <div class="ct-grid reveal">
       <div class="ct-links">
-        <a href="https://wa.me/5500000000000" target="_blank" class="cl"><div class="cl-ic">💬</div><div class="cl-tx"><div class="cl-lb">WhatsApp</div><div class="cl-vl">+55 (00) 0 0000-0000</div></div><span class="cl-ar">→</span></a>
-        <a href="mailto:icaro@email.com" class="cl"><div class="cl-ic">📧</div><div class="cl-tx"><div class="cl-lb">E-mail</div><div class="cl-vl">icaro@email.com</div></div><span class="cl-ar">→</span></a>
-        <a href="#" class="cl"><div class="cl-ic">📸</div><div class="cl-tx"><div class="cl-lb">Instagram</div><div class="cl-vl">@icaro.vendruscolo</div></div><span class="cl-ar">→</span></a>
+        <a href="https://wa.me/5511991640777" target="_blank" class="cl"><div class="cl-ic">💬</div><div class="cl-tx"><div class="cl-lb">WhatsApp</div><div class="cl-vl">+55 (11) 9 9164-0777</div></div><span class="cl-ar">→</span></a>
+        <a href="/cdn-cgi/l/email-protection#28414b495a47684d45494144064b4745" class="cl" id="emailLink"><div class="cl-ic">📧</div><div class="cl-tx"><div class="cl-lb">E-mail</div><div class="cl-vl" id="emailVal"><span class="__cf_email__" data-cfemail="dbb2b8baa9b4adbeb5bfa9aea8b8b4b7b4f5a8afaebfb2b49bbcb6bab2b7f5b8b4b6">[email&#160;protected]</span></div></div><span class="cl-ar">→</span></a>
+        <a href="https://instagram.com/vicare.png" target="_blank" class="cl"><div class="cl-ic">📸</div><div class="cl-tx"><div class="cl-lb">Instagram</div><div class="cl-vl">@vicare.png</div></div><span class="cl-ar">→</span></a>
       </div>
       <div class="ct-form">
         <div class="ft-title">Solicitar orçamento</div>
@@ -505,7 +504,7 @@
     <div class="lp-in">
       <button class="lp-bk" onclick="showPage('main')">← Voltar aos serviços</button>
       <div class="lp-tag">✦ Serviço 01</div>
-      <h1 class="lp-t">Design para<br><span>Redes Sociais</span></h1>
+      <h1 class="lp-t">Design para<br><em class="serif-it" style="color:var(--orange)">Redes Sociais</em></h1>
       <p class="lp-d">Posts, carrosséis e artes que criam consistência visual para sua marca. Conteúdo feito pra engajar, com identidade e estratégia.</p>
       <div class="lp-imgs">
         <div class="lp-ic lg"><div class="ph phd" style="height:100%"><span class="ph-ic">🎨</span><span class="ph-tx">Sua imagem aqui</span></div></div>
@@ -516,26 +515,26 @@
   </div>
   <div class="plans-sec">
     <div class="plans-in">
-      <div class="plans-hdr"><div class="lbl" style="justify-content:center">Planos mensais</div><h2 class="sec-t">Escolha seu <span>plano</span></h2><p>Todos os planos incluem briefing, revisões e entrega em alta resolução.</p></div>
+      <div class="plans-hdr"><div class="lbl" style="justify-content:center">Planos mensais</div><h2 class="sec-t">Escolha seu <em class="serif-it" style="font-size:clamp(2.2rem,4.5vw,3.8rem)">plano</em></h2><p>Todos os planos incluem briefing, revisões e entrega em alta resolução.</p></div>
       <div class="pgrid">
         <div class="pc">
           <div class="pc-tier">Básico</div><div class="pc-price">R$360</div><div class="pc-note">/mês</div><div class="pc-div"></div>
           <ul class="pc-feats"><li>4 artes por mês</li><li>2 posts estáticos</li><li>2 carrosséis</li><li>Briefing inicial incluso</li><li>1 revisão por arte</li></ul>
-          <a href="https://wa.me/5500000000000" target="_blank" class="pc-btn pb-o">Solicitar orçamento</a>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-o">Solicitar orçamento</a>
         </div>
         <div class="pc feat">
           <div class="pc-badge">Mais popular</div>
           <div class="pc-tier">Pro</div><div class="pc-price">R$440</div><div class="pc-note">/mês</div><div class="pc-div"></div>
           <ul class="pc-feats"><li>8 artes por mês</li><li>4 posts estáticos</li><li>4 carrosséis</li><li>Briefing inicial incluso</li><li>2 revisões por arte</li><li>Entrega prioritária</li></ul>
-          <a href="https://wa.me/5500000000000" target="_blank" class="pc-btn pb-s">Contratar agora</a>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-s">Contratar agora</a>
         </div>
         <div class="pc">
           <div class="pc-tier">Premium</div><div class="pc-price">R$800</div><div class="pc-note">/mês</div><div class="pc-div"></div>
           <ul class="pc-feats"><li>12 artes por mês</li><li>6 posts estáticos</li><li>6 carrosséis</li><li>Briefing + estratégia</li><li>Revisões ilimitadas</li><li>Entrega prioritária</li><li>Suporte WhatsApp direto</li></ul>
-          <a href="https://wa.me/5500000000000" target="_blank" class="pc-btn pb-or">Falar comigo</a>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-or">Falar comigo</a>
         </div>
       </div>
-      <p class="plans-note">Precisa de algo diferente? <a href="https://wa.me/5500000000000" target="_blank">Manda mensagem</a> e criamos um plano personalizado.</p>
+      <p class="plans-note">Precisa de algo diferente? <a href="https://wa.me/5511991640777" target="_blank">Manda mensagem</a> e criamos um plano personalizado.</p>
     </div>
   </div>
   <footer><div class="f-logo">IV<span>.</span> Icaro Vendruscolo</div><div class="f-copy">© 2025</div><div class="f-links"><a href="#" onclick="showPage('main')">← Voltar</a><a href="#" onclick="navTo('main','contato')">Contato</a></div></footer>
@@ -548,7 +547,7 @@
     <div class="lp-in">
       <button class="lp-bk" onclick="showPage('main')">← Voltar aos serviços</button>
       <div class="lp-tag">✦ Serviço 02</div>
-      <h1 class="lp-t">Edição de<br><span>Vídeo</span></h1>
+      <h1 class="lp-t">Edição de<br><em class="serif-it" style="color:var(--orange)">Vídeo</em></h1>
       <p class="lp-d">Reels, Shorts e TikToks com corte dinâmico, legendas animadas e tratamento de cor. Entrega consistente toda semana pra sua conta crescer.</p>
       <div class="lp-imgs">
         <div class="lp-ic lg"><div class="ph phv" style="height:100%"><span class="ph-ic">🎬</span><span class="ph-tx">Frame do vídeo editado</span></div></div>
@@ -559,7 +558,7 @@
   </div>
   <div class="plans-sec">
     <div class="plans-in">
-      <div class="plans-hdr"><div class="lbl" style="justify-content:center">Planos semanais</div><h2 class="sec-t">Conteúdo toda <span>semana</span></h2><p>Vídeos editados com consistência. Ideal para criadores e marcas com presença constante nas redes.</p></div>
+      <div class="plans-hdr"><div class="lbl" style="justify-content:center">Planos semanais</div><h2 class="sec-t">Conteúdo toda <em class="serif-it" style="font-size:clamp(2.2rem,4.5vw,3.8rem)">semana</em></h2><p>Vídeos editados com consistência. Ideal para criadores e marcas com presença constante nas redes.</p></div>
       <div class="pgrid">
         <div class="pc">
           <div class="pc-tier">Básico</div>
@@ -567,7 +566,7 @@
           <div class="pc-note">/semana &nbsp;·&nbsp; <strong>R$1.040/mês</strong></div>
           <div class="pc-div"></div>
           <ul class="pc-feats"><li>2 edições por semana</li><li>Reels, Shorts, TikTok</li><li>Corte dinâmico</li><li>Legendas animadas</li><li>Tratamento básico de cor</li></ul>
-          <a href="https://wa.me/5500000000000" target="_blank" class="pc-btn pb-o">Solicitar orçamento</a>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-o">Solicitar orçamento</a>
         </div>
         <div class="pc feat">
           <div class="pc-badge">Mais popular</div>
@@ -576,7 +575,7 @@
           <div class="pc-note">/semana &nbsp;·&nbsp; <strong>R$1.760/mês</strong></div>
           <div class="pc-div"></div>
           <ul class="pc-feats"><li>3 edições por semana</li><li>Reels, Shorts, TikTok</li><li>Corte dinâmico avançado</li><li>Legendas animadas</li><li>Tratamento de cor completo</li><li>Trilha sonora</li><li>Entrega prioritária</li></ul>
-          <a href="https://wa.me/5500000000000" target="_blank" class="pc-btn pb-s">Contratar agora</a>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-s">Contratar agora</a>
         </div>
         <div class="pc">
           <div class="pc-tier">Premium</div>
@@ -584,10 +583,10 @@
           <div class="pc-note">/semana &nbsp;·&nbsp; <strong>R$2.480/mês</strong></div>
           <div class="pc-div"></div>
           <ul class="pc-feats"><li>5 edições por semana</li><li>Reels, Shorts, TikTok</li><li>Corte dinâmico premium</li><li>Legendas animadas</li><li>Tratamento de cor completo</li><li>Motion graphics simples</li><li>Revisões ilimitadas</li><li>Suporte WhatsApp direto</li></ul>
-          <a href="https://wa.me/5500000000000" target="_blank" class="pc-btn pb-or">Falar comigo</a>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-or">Falar comigo</a>
         </div>
       </div>
-      <p class="plans-note">Valores ajustados conforme complexidade. <a href="https://wa.me/5500000000000" target="_blank">Fale comigo</a> para um orçamento exato.</p>
+      <p class="plans-note">Valores ajustados conforme complexidade. <a href="https://wa.me/5511991640777" target="_blank">Fale comigo</a> para um orçamento exato.</p>
     </div>
   </div>
   <footer><div class="f-logo">IV<span>.</span> Icaro Vendruscolo</div><div class="f-copy">© 2025</div><div class="f-links"><a href="#" onclick="showPage('main')">← Voltar</a><a href="#" onclick="navTo('main','contato')">Contato</a></div></footer>
@@ -600,7 +599,7 @@
     <div class="lp-in">
       <button class="lp-bk" onclick="showPage('main')">← Voltar aos serviços</button>
       <div class="lp-tag">✦ Serviço 03</div>
-      <h1 class="lp-t">Gravação &<br><span>Filmmaking</span></h1>
+      <h1 class="lp-t">Gravação <h1 class="lp-t">Gravação &<br><span>Filmmaking</span></h1>amp;<br><em class="serif-it" style="color:var(--orange)">Filmmaking</em></h1>
       <p class="lp-d">Gravação in-loco para conteúdo, eventos e projetos audiovisuais. Direção, captura e entrega do material bruto. Edição sob consulta separada.</p>
       <div class="lp-imgs">
         <div class="lp-ic lg"><div class="ph phf" style="height:100%"><span class="ph-ic">📷</span><span class="ph-tx">Behind the scenes</span></div></div>
@@ -611,18 +610,18 @@
   </div>
   <div class="plans-sec">
     <div class="plans-in">
-      <div class="plans-hdr"><div class="lbl" style="justify-content:center">Pacotes de gravação</div><h2 class="sec-t">Valores <span>por sessão</span></h2><p>Sem mensalidade. Contrate a sessão que precisa. Inclui deslocamento local, equipamento e direção.</p></div>
+      <div class="plans-hdr"><div class="lbl" style="justify-content:center">Pacotes de gravação</div><h2 class="sec-t">Valores <em class="serif-it" style="font-size:clamp(2.2rem,4.5vw,3.8rem)">por sessão</em></h2><p>Sem mensalidade. Contrate a sessão que precisa. Inclui deslocamento local, equipamento e direção.</p></div>
       <div class="pgrid">
         <div class="pc">
           <div class="pc-tier">Básico</div><div class="pc-price">R$260</div><div class="pc-note">por sessão</div><div class="pc-div"></div>
           <ul class="pc-feats"><li>2 horas de gravação</li><li>1 local / set</li><li>Material bruto entregue</li><li>Direção de cena inclusa</li><li>Ideal para conteúdo rápido</li></ul>
-          <a href="https://wa.me/5500000000000" target="_blank" class="pc-btn pb-o">Solicitar orçamento</a>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-o">Solicitar orçamento</a>
         </div>
         <div class="pc feat">
           <div class="pc-badge">Mais popular</div>
           <div class="pc-tier">Pro</div><div class="pc-price">R$440</div><div class="pc-note">por sessão</div><div class="pc-div"></div>
           <ul class="pc-feats"><li>4 horas de gravação</li><li>Até 2 locais / sets</li><li>Material bruto entregue</li><li>Direção e roteiro básico</li><li>Ideal para eventos e marcas</li><li>Edição: sob consulta</li></ul>
-          <a href="https://wa.me/5500000000000" target="_blank" class="pc-btn pb-s">Contratar agora</a>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-s">Contratar agora</a>
         </div>
         <div class="pc">
           <div class="pc-tier">Premium</div><div class="pc-price">R$800</div><div class="pc-note">por sessão</div><div class="pc-div"></div>
@@ -634,23 +633,21 @@
             <li>Projetos audiovisuais completos</li>
             <li style="color:var(--orange);font-style:italic;border-top:1px solid rgba(0,0,0,0.06);padding-top:10px;margin-top:4px">⚡ Quer edição completa inclusa? Me manda mensagem que ajusto o valor.</li>
           </ul>
-          <a href="https://wa.me/5500000000000" target="_blank" class="pc-btn pb-or">Falar comigo</a>
+          <a href="https://wa.me/5511991640777" target="_blank" class="pc-btn pb-or">Falar comigo</a>
         </div>
       </div>
-      <p class="plans-note">Deslocamento fora da cidade tem valor extra. <a href="https://wa.me/5500000000000" target="_blank">Entre em contato.</a></p>
+      <p class="plans-note">Deslocamento fora da cidade tem valor extra. <a href="https://wa.me/5511991640777" target="_blank">Entre em contato.</a></p>
     </div>
   </div>
   <footer><div class="f-logo">IV<span>.</span> Icaro Vendruscolo</div><div class="f-copy">© 2025</div><div class="f-links"><a href="#" onclick="showPage('main')">← Voltar</a><a href="#" onclick="navTo('main','contato')">Contato</a></div></footer>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('sc',window.scrollY>40)});
+  // fix email link
+  var el=document.getElementById('emailLink');if(el){var e='icarovendruscolo.studio'+'@'+'gmail.com';el.href='mailto:'+e;}
   function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
   function closeMenu(){document.getElementById('navLinks').classList.remove('open')}
   function showPage(p){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});setTimeout(initReveal,100)}
   function navTo(p,s){closeMenu();showPage(p);setTimeout(()=>{const el=document.getElementById(s);if(el)el.scrollIntoView({behavior:'smooth'})},160)}
-  function initReveal(){const ob=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);ob.unobserve(e.target)}})},{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>{if(!el.classList.contains('visible'))ob.observe(el)})}
-  document.addEventListener('DOMContentLoaded',()=>{initReveal();const h=document.querySelector('.hero-in');if(h){h.style.cssText='opacity:0;transform:translateY(26px);transition:opacity .9s,transform .9s';setTimeout(()=>{h.style.opacity='1';h.style.transform='none'},150)}})
-</script>
-</body>
-</html>
+  function initReveal(){const ob=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);o
