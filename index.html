@@ -37,28 +37,32 @@ nav.sc{background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-bottom
 .hero-inner-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  align-items:center;
+  align-items:end;
   min-height:100vh;
-  padding:100px 80px 60px;
+  padding:100px 80px 0;
   gap:40px;
   max-width:100%;
   position:relative;
   z-index:1;
 }
+.hero-left{
+  padding-bottom:60px;
+}
 .hero-left{position:relative;z-index:1}
-.hero-right{position:relative;z-index:1;display:flex;align-items:center;justify-content:center}
+.hero-right{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:center;align-self:stretch}
 
 /* orange circle behind the image */
 .hero-circle{
   position:absolute;border-radius:50%;background:var(--orange);
   pointer-events:none;z-index:0;
-  width:520px;height:520px;
-  top:50%;right:-40px;
-  transform:translateY(-50%);
+  width:500px;height:500px;
+  /* centered on the right half of the hero */
+  top:50%;left:75%;
+  transform:translate(-50%,-50%);
   transition:width .08s,height .08s;
 }
-.hero-img-wrap{position:relative;z-index:1;width:100%;max-width:520px;display:flex;align-items:flex-end;justify-content:center}
-.hero-img-wrap img{width:100%;height:auto;display:block;object-fit:contain;filter:drop-shadow(0 20px 60px rgba(0,0,0,.12))}
+.hero-img-wrap{position:relative;z-index:1;width:100%;display:flex;align-items:flex-end;justify-content:center}
+.hero-img-wrap img{width:auto;max-width:100%;height:85vh;max-height:700px;display:block;object-fit:contain;object-position:bottom;filter:drop-shadow(0 20px 60px rgba(0,0,0,.12))}
 
 .h-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:20px;background:var(--orange-l);border:1px solid rgba(255,92,26,.2);padding:6px 16px;border-radius:100px}
 .h-tag::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;animation:blink 2s infinite}
@@ -78,8 +82,10 @@ nav.sc{background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-bottom
 @media(max-width:900px){
   .hero-inner-grid{grid-template-columns:1fr;padding:100px 24px 60px;text-align:center}
   .hero-right{order:-1;margin-bottom:-20px}
-  .hero-circle{width:260px;height:260px;right:auto;left:50%;transform:translateX(-50%) translateY(-10%)}
-  .hero-img-wrap{max-width:280px;margin:0 auto}
+  .hero-circle{width:260px;height:260px;left:50%;top:40%;transform:translate(-50%,-50%)}
+  .hero-img-wrap{max-width:320px;margin:0 auto}
+  .hero-img-wrap img{height:50vh;max-height:360px}
+  .hero-left{padding-bottom:40px}
   .h-acts{justify-content:center}
   .h-chips{justify-content:center}
   .h-sub{margin-left:auto;margin-right:auto}
@@ -404,8 +410,6 @@ footer{border-top:1px solid var(--border);padding:34px 60px;background:var(--bg)
 <!-- ========================= MAIN PAGE ========================= -->
 <div id="page-main" class="page active">
 
-  <section id="home">
-    <!-- orange expanding circle -->
   <section id="home">
     <!-- orange circle — positioned in the right column -->
     <div class="hero-circle" id="heroCircle"></div>
@@ -1102,20 +1106,22 @@ var homeSection = document.getElementById('home');
 var mqWrap = document.getElementById('mqWrap');
 var circleBaseSize = 520;
 
-// Mouse parallax — desktop only, moves circle slightly with mouse
+// Mouse parallax — desktop only
 if (window.innerWidth > 900) {
   document.addEventListener('mousemove', function(e) {
     if (!circle || !homeSection) return;
     var rect = homeSection.getBoundingClientRect();
     if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+    // natural center = 75% horizontal, 50% vertical of hero
     var naturalCX = rect.left + rect.width * 0.75;
     var naturalCY = rect.top + rect.height * 0.5;
     var dx = e.clientX - naturalCX;
     var dy = e.clientY - naturalCY;
     var dist = Math.sqrt(dx*dx + dy*dy);
-    var strength = Math.max(0, 1 - dist / 700);
-    circle.style.marginLeft = (dx * strength * 0.07) + 'px';
-    circle.style.marginTop  = (dy * strength * 0.07) + 'px';
+    var strength = Math.max(0, 1 - dist / 800);
+    var ox = dx * strength * 0.05;
+    var oy = dy * strength * 0.05;
+    circle.style.transform = 'translate(calc(-50% + ' + ox + 'px), calc(-50% + ' + oy + 'px))';
   });
 }
 
@@ -1125,15 +1131,20 @@ function expandCircleOnScroll() {
   if (!mainPage || !mainPage.classList.contains('active')) return;
   var homeRect = homeSection.getBoundingClientRect();
   var homeHeight = homeSection.offsetHeight;
+  // progress: 0 at top of hero, 1 when hero bottom hits top of viewport
   var scrollInHero = Math.max(0, -homeRect.top);
-  var progress = Math.min(1, scrollInHero / (homeHeight * 0.8));
-  var maxSize = Math.sqrt(window.innerWidth*window.innerWidth + window.innerHeight*window.innerHeight) * 2.2;
-  var size = circleBaseSize + (maxSize - circleBaseSize) * progress;
+  var progress = Math.min(1, scrollInHero / homeHeight);
+  // diagonal of viewport — circle must fully cover screen at progress=1
+  var diagonal = Math.sqrt(window.innerWidth*window.innerWidth + window.innerHeight*window.innerHeight);
+  var maxSize  = diagonal * 2.4;
+  var size     = circleBaseSize + (maxSize - circleBaseSize) * progress;
+  // anchor stays centered on right half (75% of hero width)
   circle.style.width  = size + 'px';
   circle.style.height = size + 'px';
+  circle.style.left   = '75%';
   circle.style.top    = '50%';
-  circle.style.right  = (-size/2 + circleBaseSize/2 - 40) + 'px';
-  circle.style.opacity = progress > 0.01 ? Math.min(1, 0.12 + progress * 0.88) : 1;
+  circle.style.transform = 'translate(-50%,-50%)';
+  circle.style.opacity = '1';
 }
 
 /* ===== INIT ===== */
